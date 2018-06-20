@@ -1,16 +1,22 @@
 const argv = require('argv');
 const package = require('../package');
+const devmock = require('../lib/main');
 
-// default values
-const DEFAULT_PORT = 9080;
+const SERVER_MOD = {
+  mod: 'server',
+  description: 'Http mock server',
+  options: [{
+    name: 'port',
+    short: 'p',
+    type: 'int'
+  }]
+};
 
-let options = [{
-  name: 'port',
-  short: 'p',
-  type: 'int',
-  description: `Defines the port of dev mock server. Defaults to ${DEFAULT_PORT}`,
-  example: "'devmock --port=value' or 'devmock -p value'"
-}];
+// parse command-line arguments
+let {options, mod} = argv.mod(SERVER_MOD).version(package.version).run();
 
-let args = argv.option(options).version(package.version).help().run();
-console.dir(args);
+if (mod == 'server') {
+  devmock.startServer(options);
+} else {
+  devmock.startWS(options);
+}

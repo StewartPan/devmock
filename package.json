@@ -2,9 +2,9 @@
   "name": "devmock",
   "version": "1.0.0",
   "description": "A mock server for web development which decouple frontend and backend developers and improve development efficiency.",
-  "main": "index.js",
+  "main": "lib/main.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node bin/devmock server -p 9090"
   },
   "repository": {
     "type": "git",
@@ -22,5 +22,8 @@
   },
   "bin": {
     "devmock": "./bin/devmock"
+  },
+  "engines": {
+    "node": ">=6.4.0"
   }
 }
