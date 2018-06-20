@@ -1,0 +1,26 @@
+{
+  "name": "devmock",
+  "version": "1.0.0",
+  "description": "A mock server for web development which decouple frontend and backend developers and improve development efficiency.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://majiangl@github.com/majiangl/devmock.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/majiangl/devmock/issues"
+  },
+  "homepage": "https://github.com/majiangl/devmock#readme",
+  "dependencies": {
+    "argv": "0.0.2"
+  },
+  "bin": {
+    "devmock": "./bin/devmock"
+  }
+}
