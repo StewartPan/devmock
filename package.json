@@ -4,7 +4,7 @@
   "description": "A mock server for web development which decouple frontend and backend developers and improve development efficiency.",
   "main": "lib/main.js",
   "scripts": {
-    "test": "node bin/devmock server -p 9090"
+    "test": "node bin/devmock server"
   },
   "repository": {
     "type": "git",

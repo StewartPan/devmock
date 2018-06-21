@@ -9,6 +9,10 @@ const SERVER_MOD = {
     name: 'port',
     short: 'p',
     type: 'int'
+  },{
+    name: 'dir',
+    short: 'd',
+    type: 'path'
   }]
 };
 
