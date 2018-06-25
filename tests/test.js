@@ -1,7 +1,7 @@
 var http = require('http'),
     httpProxy = require('http-proxy');
- 
-//
+ 	record = require('../lib/record');
+ 	url = require('url');
 // Create a proxy server with custom application logic
 //
 var proxy = httpProxy.createProxyServer({});
@@ -11,6 +11,8 @@ var proxy = httpProxy.createProxyServer({});
 // a web request to the target passed in the options
 // also you can use `proxy.ws()` to proxy a websockets request
 //
+
+
 var server = http.createServer(function(req, res) {
   // You can define here your custom logic to handle the request
   // and then proxy the request.
@@ -19,14 +21,17 @@ var server = http.createServer(function(req, res) {
       selfHandleResponse : true
     };
     proxy.on('proxyRes', function (proxyRes, req, res) {
-        var body = new Buffer('');
-        proxyRes.on('data', function (data) {
-            body = Buffer.concat([body, data]);
-        });
+      var body = new Buffer('');
+      proxyRes.on('data', function (data) {
+        body = Buffer.concat([body, data]);
+      });
         proxyRes.on('end', function () {
-            body = body.toString();
-            console.log("res from proxied server:", body);
-            res.end("my response to cli");
+        body = body.toString();
+        //console.log("res from proxied server:", body);
+        let storePath = '../data/recordData' + req.url;
+        console.log(storePath);
+        record(storePath, body);
+        res.end("my response to cli");
         });
     });
     proxy.web(req, res, option);
