@@ -4,29 +4,53 @@ var http = require('http'),
 // Create a proxy server with custom application logic
 //
 
-var option = {
-  target: 'http://localhost:9005',
-  selfHandleResponse : true
-};
+// var option = {
+//   target: 'http://localhost:9005',
+//   //selfHandleResponse : true
+// };
+//
+// var proxy = httpProxy.createProxyServer(option);
+//
+// proxy.listen(5050);
 
-var proxy = httpProxy.createProxyServer(option);
+const isReachable = require('is-reachable');
 
-proxy.listen(5050);
-
-proxy.on('proxyRes', function (proxyRes, req, res) {
-  var body = new Buffer('');
-  proxyRes.on('data', function (data) {
-    body = Buffer.concat([body, data]);
-  });
-    proxyRes.on('end', function () {
-    body = body.toString();
-    //console.log("res from proxied server:", body);
-    let storePath = '../data/recordData' + req.url;
-    console.log(storePath);
-    //record(storePath, body);
-    res.end("my response to cli");
-    });
+isReachable('http://localhost:9005').then(reachable => {
+    console.log('localhost is ', reachable);
+    //=> true
 });
+
+isReachable('google.com:80').then(reachable => {
+    console.log('google is ', reachable);
+    //=> true
+});
+
+// proxy.on('error', function(e){
+//   if(e.code === 'ECONNREFUSED'){
+//     console.log("catch the did error! ");
+//   }else{
+//     console.log("ooops， something went wrong！")
+//   }
+// });
+//
+// proxy.on('proxyReq', function(proxyReq, req, res, options) {
+//   //sproxyReq.setHeader('X-Special-Proxy-Header', 'foobar');
+// });
+
+// proxy.on('proxyRes', function (proxyRes, req, res) {
+//   var body = new Buffer('');
+//   proxyRes.on('data', function (data) {
+//     body = Buffer.concat([body, data]);
+//   });
+//     proxyRes.on('end', function () {
+//     body = body.toString();
+//     //console.log("res from proxied server:", body);
+//     let storePath = '../data/recordData' + req.url;
+//     console.log(storePath);
+//     //record(storePath, body);
+//     res.end("my response to cli");
+//     });
+// });
 
 //
 // Create your custom server and just call `proxy.web()` to proxy
