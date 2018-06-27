@@ -20,7 +20,7 @@ const SERVER_MOD = {
 let {options, mod} = argv.mod(SERVER_MOD).version(package.version).run();
 
 if (mod == 'server') {
-  devmock.startServer(options);
+  devmock.ServerMode(options);
 } else {
-  devmock.startWS(options);
+  devmock.WebsocketMode(options);
 }
