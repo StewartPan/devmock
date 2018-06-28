@@ -10,6 +10,7 @@ module.exports = function runPrompt(schema, cb) {
     else {
       cb && cb(result);
     }
+    prompt.stop();
   });
 };
 
