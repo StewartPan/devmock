@@ -21,7 +21,7 @@ let {options, mod} = argv.mod(SERVER_MOD).version(package.version).run();
 
 
 if (mod == 'server') {
-  devmock.createServer(options);
+  devmock.createServer(path);
 } else {
-  devmock.createWS(options);
+  devmock.createWS(path);
 }

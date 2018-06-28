@@ -1,7 +1,7 @@
-var http = require('http'),
+const http = require('http'),
     // httpProxy = require('http-proxy');
  	  // record = require('../lib/record');
-    url = require('url');
+    url = require('url'),
     path = require('path');
 
 console.log(path.resolve());
