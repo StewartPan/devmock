@@ -4,7 +4,7 @@
   "description": "A mock server for web development which decouple frontend and backend developers and improve development efficiency.",
   "main": "lib/main.js",
   "scripts": {
-    "test": "node bin/devmock server"
+    "test": "node bin/devmock init"
   },
   "repository": {
     "type": "git",
@@ -18,7 +18,8 @@
   },
   "homepage": "https://github.com/majiangl/devmock#readme",
   "dependencies": {
-    "argv": "0.0.2"
+    "argv": "0.0.2",
+    "prompt": "^1.0.0"
   },
   "bin": {
     "devmock": "./bin/devmock"
