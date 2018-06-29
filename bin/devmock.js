@@ -1,7 +1,6 @@
 const argv = require('argv');
 const package = require('../package');
 const devmock = require('../lib/main');
-const {createServer, createWS} = require('../lib/main');
 const SERVER_MOD = {
   mod: 'server',
   description: 'Http mock server',
