@@ -12,6 +12,7 @@ const MODS = [{
     type: 'boolean'
   }]
 }, {
+
   mod: 'server',
   description: 'Http mock server',
   options: [{
@@ -29,6 +30,7 @@ const MODS = [{
 MODS.forEach((opt) => argv.mod(opt));
 let {options, mod} = argv.version(package.version).run();
 
+
 if (mod == 'init') {
   if (options.yes) { // Use default config
     devmock.initConfigFile();
@@ -38,8 +40,8 @@ if (mod == 'init') {
   }
 }
 else if (mod == 'server') {
-  devmock.startServer(options);
+  devmock.createServer(options);
 }
 else if (mod == 'ws') {
-  devmock.startWS(options);
+  devmock.createWS(options);
 }

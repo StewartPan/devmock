@@ -19,7 +19,9 @@
   "homepage": "https://github.com/majiangl/devmock#readme",
   "dependencies": {
     "argv": "0.0.2",
+    "http-proxy": "^1.17.0",
     "prompt": "^1.0.0"
+
   },
   "bin": {
     "devmock": "./bin/devmock"
