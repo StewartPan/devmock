@@ -1,17 +1,19 @@
 const prompt = require('prompt');
 const default_path = require('path').resolve();
+const default_config = require('../lib/config');
+
 const schema = {
   properties: {
     server_port: {
       description: 'Enter server port',
       type: 'integer',
-      default: 9080,
+      default: default_config.server_port,
       required: true
     },
     server_url: {
       description: 'Enter server url to proxy',
       type: 'string',
-      default: 'http://localhost:8080',
+      default: default_config.server_url,
       required: true
     },
     mockdata_dir: {
@@ -23,7 +25,7 @@ const schema = {
     distinguisher: {
       description: 'Enter distinguisher to identify different requests',
       type: 'array',
-      default: [],
+      default: default_config.distinguisher,
       require: true
     },
 
