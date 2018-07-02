@@ -41,6 +41,7 @@ if (mod == 'init') {
 }
 else if (mod == 'server') {
   devmock.createServer(options);
+  console.log("The option is ", JSON.stringify(options));
 }
 else if (mod == 'ws') {
   devmock.createWS(options);

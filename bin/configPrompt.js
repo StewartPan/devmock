@@ -1,19 +1,19 @@
 const prompt = require('prompt');
 const default_path = require('path').resolve();
-const default_config = require('../lib/config');
+const {SERVER_PORT, SERVER_URL, TARGET_URL, DISTINGUISHER} = require('../lib/config');
 
 const schema = {
   properties: {
     server_port: {
       description: 'Enter server port',
       type: 'integer',
-      default: default_config.server_port,
+      default: SERVER_PORT,
       required: true
     },
     server_url: {
       description: 'Enter server url to proxy',
       type: 'string',
-      default: default_config.server_url,
+      default: SERVER_URL,
       required: true
     },
     mockdata_dir: {
@@ -22,19 +22,18 @@ const schema = {
       default: default_path,
       required: true
     },
-    distinguisher: {
-      description: 'Enter distinguisher to identify different requests',
-      type: 'array',
-      default: default_config.distinguisher,
-      require: true
-    },
-
     target_url: {
       description: 'Enter target_url to cache desired ajax data',
       type: 'string',
-      default: 'http://localhost:8080/MstrMainBranch/servlet/mstrWeb',
+      default: TARGET_URL,
       require: true
-    }
+    },
+    distinguisher: {
+      description: 'Enter distinguisher to identify different requests',
+      type: 'array',
+      default: DISTINGUISHER,
+      require: true
+    },
   }
 };
 
