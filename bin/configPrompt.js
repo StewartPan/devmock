@@ -16,7 +16,7 @@ const schema = {
       default: SERVER_URL,
       required: true
     },
-    mockdata_dir: {
+    dir: {
       description: 'Enter directory to store mockdata and config',
       type: 'string',
       default: default_path,

@@ -12,14 +12,9 @@ const MODS = [{
     type: 'boolean'
   }]
 }, {
-
   mod: 'server',
   description: 'Http mock server',
   options: [{
-    name: 'port',
-    short: 'p',
-    type: 'int'
-  }, {
     name: 'dir',
     short: 'd',
     type: 'path'
