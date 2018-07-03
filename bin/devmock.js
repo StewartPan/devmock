@@ -12,14 +12,9 @@ const MODS = [{
     type: 'boolean'
   }]
 }, {
-
   mod: 'server',
   description: 'Http mock server',
   options: [{
-    name: 'port',
-    short: 'p',
-    type: 'int'
-  }, {
     name: 'dir',
     short: 'd',
     type: 'path'
@@ -41,6 +36,7 @@ if (mod == 'init') {
 }
 else if (mod == 'server') {
   devmock.createServer(options);
+  console.log("The option is ", JSON.stringify(options));
 }
 else if (mod == 'ws') {
   devmock.createWS(options);

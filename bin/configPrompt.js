@@ -1,19 +1,39 @@
 const prompt = require('prompt');
+const default_path = require('path').resolve();
+const {SERVER_PORT, SERVER_URL, TARGET_URL, DISTINGUISHER} = require('../lib/config');
 
 const schema = {
   properties: {
     server_port: {
       description: 'Enter server port',
       type: 'integer',
-      default: 9080,
+      default: SERVER_PORT,
       required: true
     },
     server_url: {
       description: 'Enter server url to proxy',
       type: 'string',
-      default: 'http://localhost:8080',
+      default: SERVER_URL,
       required: true
-    }
+    },
+    dir: {
+      description: 'Enter directory to store mockdata and config',
+      type: 'string',
+      default: default_path,
+      required: true
+    },
+    target_url: {
+      description: 'Enter target_url to cache desired ajax data',
+      type: 'string',
+      default: TARGET_URL,
+      require: true
+    },
+    distinguisher: {
+      description: 'Enter distinguisher to identify different requests',
+      type: 'array',
+      default: DISTINGUISHER,
+      require: true
+    },
   }
 };
 
@@ -30,4 +50,3 @@ module.exports = function configPrompt(cb) {
     prompt.stop();
   });
 };
-

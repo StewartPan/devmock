@@ -20,8 +20,8 @@
   "dependencies": {
     "argv": "0.0.2",
     "http-proxy": "^1.17.0",
+    "json-format": "^1.0.1",
     "prompt": "^1.0.0"
-
   },
   "bin": {
     "devmock": "./bin/devmock"
