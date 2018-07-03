@@ -1,0 +1,6 @@
+{
+  "server_port": 9080,
+  "server_url": "http://localhost:8080",
+  "target_url": "http://localhost:8080/MstrMainBranch/servlet/mstrWeb",
+  "distinguisher": ""
+}
