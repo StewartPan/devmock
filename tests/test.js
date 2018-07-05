@@ -13,7 +13,7 @@ var http = require('http'),
 //
 // Create a proxy server with custom application logic
 //
-var proxy = httpProxy.createProxyServer({});
+var proxy = httpProxy.createProxyServer({target: 'http://localhost:8080'});
 
 //
 // Create your custom server and just call `proxy.web()` to proxy
@@ -23,11 +23,25 @@ var proxy = httpProxy.createProxyServer({});
 var server = http.createServer(function(req, res) {
   // You can define here your custom logic to handle the request
   // and then proxy the request.
-  proxy.web(req, res, { target: 'http://127.0.0.1:8080' });
-});
-
-console.log("listening on port 5050")
-server.listen(5050);
+  // proxy.web(req, res, { target: 'http://localhost:8080' });
+  proxy.on('proxyRes', function (proxyRes, req, res) {
+    var body = new Buffer('');
+    proxyRes.on('data', function (data) {
+      body = Buffer.concat([body, data]);
+    });
+      proxyRes.on('end', function () {
+      body = body.toString();
+      //console.log("res from proxied server:", body);
+      //let storePath = '../data/recordData' + req.url;
+      console.log(storePath);
+      //record(storePath, body);
+      res.end("my response to cli");
+      });
+  });
+}).listen(5050);
+//
+// console.log("listening on port 5050")
+// server.listen(5050);
 
 // var option = {
 //   target: 'http://localhost:9005',
@@ -51,20 +65,20 @@ server.listen(5050);
 //   console.log('the request url is ', req.url);
 // });
 //
-// proxy.on('proxyRes', function (proxyRes, req, res) {
-//   var body = new Buffer('');
-//   proxyRes.on('data', function (data) {
-//     body = Buffer.concat([body, data]);
-//   });
-//     proxyRes.on('end', function () {
-//     body = body.toString();
-//     //console.log("res from proxied server:", body);
-//     let storePath = '../data/recordData' + req.url;
-//     console.log(storePath);
-//     //record(storePath, body);
-//     res.end("my response to cli");
-//     });
-// });
+proxy.on('proxyRes', function (proxyRes, req, res) {
+  var body = new Buffer('');
+  proxyRes.on('data', function (data) {
+    body = Buffer.concat([body, data]);
+  });
+    proxyRes.on('end', function () {
+    body = body.toString();
+    //console.log("res from proxied server:", body);
+    //let storePath = '../data/recordData' + req.url;
+    console.log(storePath);
+    //record(storePath, body);
+    res.end("my response to cli");
+    });
+});
 
 //
 // Create your custom server and just call `proxy.web()` to proxy
