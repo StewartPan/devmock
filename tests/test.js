@@ -1,13 +1,20 @@
-const fs = require('fs');
+var fs = require('fs'),
+    util = require('util'),
+    cp = require('child_process');
 
-function testAppend(){
-  let stream = fs.createWriteStream("jsonTest.json", {flags: 'a'});
-  console.log(new Date().toISOString());
-  [...Array()].forEach(function (item, index){
-    stream.write(index + "\n");
-  });
-  console.log(new Date().toISOString());
-  stream.end();
-}
+var filename = 'jsonTest.js';
+var lines2nuke = 3;
+var command = util.format('tail -n %d %s', lines2nuke, filename);
 
-testAppend();
+cp.exec(command, (err, stdout, stderr) => {
+    if (err) throw err;
+    var to_vanquish = stdout.length;
+    console.log('stdout length is ', stdout.length);
+    fs.stat(filename, (err, stats) => {
+        if (err) throw err;
+        fs.truncate(filename, stats.size - to_vanquish, (err) => {
+            if (err) throw err;
+            console.log('File truncated!');
+        })
+    });
+});
