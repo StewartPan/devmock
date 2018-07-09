@@ -1,6 +1,6 @@
 const prompt = require('prompt');
 const default_path = require('path').resolve();
-const {SERVER_PORT, WS_PORT, SERVER_URL, TARGET_URL, DISTINGUISHER} = require('../lib/config');
+const {SERVER_PORT, WS_PORT, SERVER_URL, TARGET_URL, DISTINGUISHER} = require('../lib/defaults');
 
 const schema = {
   properties: {
@@ -10,7 +10,7 @@ const schema = {
       default: SERVER_PORT,
       required: true
     },
-    server_port: {
+    websocket_port: {
       description: 'Enter websocket port',
       type: 'integer',
       default: WS_PORT,

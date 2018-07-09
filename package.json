@@ -23,7 +23,8 @@
     "http-proxy": "^1.17.0",
     "json-format": "^1.0.1",
     "mkdirp": "^0.5.1",
-    "prompt": "^1.0.0"
+    "prompt": "^1.0.0",
+    "stringify-object": "^3.2.2"
   },
   "bin": {
     "devmock": "./bin/devmock"
