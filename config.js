@@ -5,5 +5,7 @@ module.exports = {
   target_url: '/MstrMainBranch/servlet/mstrWeb',
   distinguisher: '',
   routes: [
+    "GET\\MstrMainBranch\\servlet\\mstrWeb.json",
+    //"POST\\MstrMainBranch\\servlet\\mstrWeb.json",
   ]
 }
