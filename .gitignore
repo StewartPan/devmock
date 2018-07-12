@@ -62,6 +62,7 @@ typings/
 
 # .DS_Store
 .DS_Store
-
 .idea
 
+# ignore the tests folder
+tests/

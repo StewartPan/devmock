@@ -31,7 +31,7 @@ if (mod == 'init') {
     devmock.initConfigFile();
   }
   else { // Use prompt
-    configPrompt(config=>devmock.initConfigFile(config));
+    configPrompt(config => devmock.initConfigFile(config));
   }
 }
 else if (mod == 'server') {
