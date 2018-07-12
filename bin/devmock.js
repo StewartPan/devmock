@@ -1,3 +1,5 @@
+#! /usr/bin/env node
+
 const argv = require('argv');
 const package = require('../package');
 const devmock = require('../lib/main');
