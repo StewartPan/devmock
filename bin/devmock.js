@@ -17,7 +17,7 @@ const MODS = [{
   options: [{
     name: 'dir',
     short: 'd',
-    type: 'path'
+    type: 'string'
   }]
 }];
 
