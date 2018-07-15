@@ -22,12 +22,12 @@ const schema = {
       default: SERVER_URL,
       required: true
     },
-    dir: {
-      description: 'Enter directory to store mockdata and config',
-      type: 'string',
-      default: default_path,
-      required: true
-    },
+    // dir: {
+    //   description: 'Enter directory to store mockdata and config',
+    //   type: 'string',
+    //   default: default_path,
+    //   required: true
+    // },
     target_url: {
       description: 'Enter target_url to cache desired ajax data',
       type: 'string',
