@@ -1,6 +1,6 @@
 const prompt = require('prompt');
 const default_path = require('path').resolve();
-const {SERVER_PORT, WS_PORT, SERVER_URL, TARGET_URL, DISTINGUISHER} = require('../lib/defaults');
+const {SERVER_PORT, WS_PORT, SERVER_URL, DISTINGUISHER} = require('../lib/defaults');
 
 const schema = {
   properties: {
@@ -31,7 +31,7 @@ const schema = {
     target_url: {
       description: 'Enter target_url to cache desired ajax data',
       type: 'string',
-      default: TARGET_URL,
+      default: '',
       require: true
     },
     distinguisher: {

@@ -16,8 +16,6 @@ http.createServer(function(request, response) {
     });
     response.statusCode = 200;
     response.setHeader('Content-Type', 'application/json');
-    // 注：上面两行代码可以用下面一行替换
-    // response.writeHead(200, {'Content-Type': 'application/json'})
     var responseBody = {
       headers: headers,
       method: method,
