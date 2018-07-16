@@ -1,6 +1,6 @@
 {
   "name": "devmock",
-  "version": "1.0.0",
+  "version": "0.1.1",
   "description": "A mock server for web development which decouple frontend and backend developers and improve development efficiency.",
   "main": "lib/main.js",
   "scripts": {
@@ -29,7 +29,7 @@
     "stringify-object": "^3.2.2"
   },
   "bin": {
-    "devmock": "./bin/devmock"
+    "devmock": "./bin/devmock.js"
   },
   "engines": {
     "node": ">=6.4.0"
