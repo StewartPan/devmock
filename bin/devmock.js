@@ -33,11 +33,12 @@ let {options, mod} = argv.version(package.version).run();
 
 if (mod == 'init') {
   if (options.yes) { // Use default config
-    devmock.initConfigFile(dir, null);
-  }
-  else { // Use prompt
-    let dir = options.dir? options.dir : path.resolve();
-    configPrompt(dir, devmock.initConfigFile(dir, options));
+    devmock.initConfigFile(path.resolve(), null);
+  } else { // Use prompt
+    console.log("options is ", JSON.stringify(options));
+    let dir = options.dir != 'true'? (path.isAbsolute(options.dir)? options.dir : path.join(path.resolve(), options.dir)) : path.resolve();
+    console.log("The dir is ", dir);
+    configPrompt(dir, (dir, options) => devmock.initConfigFile(dir, options));
   }
 }
 else if (mod == 'server') {
