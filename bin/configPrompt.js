@@ -30,7 +30,7 @@ const schema = {
     },
     distinguisher: {
       description: 'Enter distinguisher to identify different requests',
-      type: 'string',
+      type: 'array',
       default: DISTINGUISHER,
       require: true
     },

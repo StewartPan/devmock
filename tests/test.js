@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 var http = require('http');
 http.createServer(function(request, response) {
   var headers = request.headers;
@@ -25,10 +24,5 @@ http.createServer(function(request, response) {
     };
     response.write(JSON.stringify(responseBody));
     response.end();
-    // 注：同样，可以这样替换
-    // response.end(JSON.stringify(responseBody))
-    // END OF NEW STUFF
   });
 }).listen(9090);
-=======
->>>>>>> bd2fb72ae6f8e8df0fe8dade802922915c5f626a
