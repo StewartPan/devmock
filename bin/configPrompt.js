@@ -1,6 +1,6 @@
 const prompt = require('prompt');
 const default_path = require('path').resolve();
-const {SERVER_PORT, WS_PORT, SERVER_URL, TARGET_URL, DISTINGUISHER} = require('../lib/defaults');
+const {SERVER_PORT, WS_PORT, SERVER_URL, DISTINGUISHER} = require('../lib/defaults');
 
 const schema = {
   properties: {
@@ -22,28 +22,22 @@ const schema = {
       default: SERVER_URL,
       required: true
     },
-    dir: {
-      description: 'Enter directory to store mockdata and config',
-      type: 'string',
-      default: default_path,
-      required: true
-    },
     target_url: {
       description: 'Enter target_url to cache desired ajax data',
       type: 'string',
-      default: TARGET_URL,
+      default: '',
       require: true
     },
     distinguisher: {
       description: 'Enter distinguisher to identify different requests',
-      type: 'string',
+      type: 'array',
       default: DISTINGUISHER,
       require: true
     },
   }
 };
 
-module.exports = function configPrompt(cb) {
+module.exports = function configPrompt(dir, cb) {
   prompt.start();
   prompt.message = '';
   prompt.get(schema, function (err, result) {
@@ -51,7 +45,7 @@ module.exports = function configPrompt(cb) {
       console.error(err);
     }
     else {
-      cb && cb(result);
+      cb && cb(dir, result);
     }
     prompt.stop();
   });
