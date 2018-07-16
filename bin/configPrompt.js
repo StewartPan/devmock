@@ -22,12 +22,6 @@ const schema = {
       default: SERVER_URL,
       required: true
     },
-    dir: {
-      description: 'Enter directory to store mockdata and config',
-      type: 'string',
-      default: default_path,
-      required: true
-    },
     target_url: {
       description: 'Enter target_url to cache desired ajax data',
       type: 'string',
@@ -43,7 +37,7 @@ const schema = {
   }
 };
 
-module.exports = function configPrompt(cb) {
+module.exports = function configPrompt(dir, cb) {
   prompt.start();
   prompt.message = '';
   prompt.get(schema, function (err, result) {
@@ -51,7 +45,7 @@ module.exports = function configPrompt(cb) {
       console.error(err);
     }
     else {
-      cb && cb(result);
+      cb && cb(dir, result);
     }
     prompt.stop();
   });

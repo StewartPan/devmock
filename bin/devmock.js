@@ -2,6 +2,7 @@ const argv = require('argv');
 const package = require('../package');
 const devmock = require('../lib/main');
 const configPrompt = require('./configPrompt');
+const path = require('path');
 
 const MODS = [{
   mod: 'init',
@@ -10,6 +11,10 @@ const MODS = [{
     name: 'yes',
     short: 'y',
     type: 'boolean'
+  },{
+    name: 'dir',
+    short: 'd',
+    type: 'string'
   }]
 }, {
   mod: 'server',
@@ -28,10 +33,11 @@ let {options, mod} = argv.version(package.version).run();
 
 if (mod == 'init') {
   if (options.yes) { // Use default config
-    devmock.initConfigFile();
+    devmock.initConfigFile(dir, null);
   }
   else { // Use prompt
-    configPrompt(config => devmock.initConfigFile(config));
+    let dir = options.dir? options.dir : path.resolve();
+    configPrompt(dir, devmock.initConfigFile(dir, options));
   }
 }
 else if (mod == 'server') {
