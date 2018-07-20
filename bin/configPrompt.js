@@ -1,25 +1,25 @@
 const prompt = require('prompt');
 const default_path = require('path').resolve();
-const {SERVER_PORT, WS_PORT, SERVER_URL, DISTINGUISHER} = require('../lib/defaults');
+const {server_port, ws_port, server_url, distinguisher} = require('../lib/defaults');
 
 const schema = {
   properties: {
     server_port: {
       description: 'Enter server port',
       type: 'integer',
-      default: SERVER_PORT,
+      default: server_port,
       required: true
     },
-    websocket_port: {
+    ws_port: {
       description: 'Enter websocket port',
       type: 'integer',
-      default: WS_PORT,
+      default: ws_port,
       required: true
     },
     server_url: {
       description: 'Enter server url to proxy',
       type: 'string',
-      default: SERVER_URL,
+      default: server_url,
       required: true
     },
     target_url: {
@@ -29,9 +29,9 @@ const schema = {
       require: true
     },
     distinguisher: {
-      description: 'Enter distinguisher to identify different requests',
+      description: 'Enter distinguisher array to identify different requests(use ^C to end)',
       type: 'array',
-      default: DISTINGUISHER,
+      default: distinguisher,
       require: true
     },
   }

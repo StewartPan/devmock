@@ -32,19 +32,28 @@ const MODS = [{
 MODS.forEach((opt) => argv.mod(opt));
 let {options, mod} = argv.version(package.version).run();
 
+function dirHelper(options){
+  // if use options -d, but not specify dir, it will return {dir : 'true'}, weird!!
+  let dir = options.dir;
+  if(dir){
+    dir = dir != 'true'? (path.isAbsolute(dir)? dir : path.join(path.resolve(), dir)) : path.resolve();
+  }else{
+    dir = path.resolve();
+  }
+  return dir;
+}
 
 if (mod == 'init') {
   if (options.yes) { // Use default config
-    devmock.initConfigFile(path.resolve(), null);
+    let dir = dirHelper(options);
+    devmock.initConfigFile(dir, null);
   } else { // Use prompt
-    // if use options -d, but not specify dir, it will return 'true', weird!!
-    let dir = options.dir != 'true'? (path.isAbsolute(options.dir)? options.dir : path.join(path.resolve(), options.dir)) : path.resolve();
+    let dir = dirHelper(options);
     configPrompt(dir, (dir, options) => devmock.initConfigFile(dir, options));
   }
 }
 else if (mod == 'server') {
   devmock.createServer(options);
-  console.log("The option is ", JSON.stringify(options));
 }
 else if (mod == 'ws') {
   devmock.createWS(options);

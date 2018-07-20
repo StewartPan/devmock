@@ -1,28 +1,9 @@
-var http = require('http');
-http.createServer(function(request, response) {
-  var headers = request.headers;
-  var method = request.method;
-  var url = request.url;
-  var body = [];
-  request.on('error', function(err) {
-    console.error(err);
-  }).on('data', function(chunk) {
-    body.push(chunk);
-  }).on('end', function() {
-    body = Buffer.concat(body).toString();
-    // BEGINNING OF NEW STUFF
-    response.on('error', function(err) {
-      console.error(err);
-    });
-    response.statusCode = 200;
-    response.setHeader('Content-Type', 'application/json');
-    var responseBody = {
-      headers: headers,
-      method: method,
-      url: url,
-      body: body
-    };
-    response.write(JSON.stringify(responseBody));
-    response.end();
-  });
-}).listen(9090);
+const http = require('http');
+const httpProxy = require('http-proxy');
+let proxy = httpProxy.createProxyServer({
+  target: 'http://localhost:8080',
+  auth: 'user:password'
+});
+let server = http.createServer(function(req, res){
+  proxy.web(req, res);
+}).listen(9081);
