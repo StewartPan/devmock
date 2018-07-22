@@ -19,6 +19,7 @@
   "homepage": "https://github.com/majiangl/devmock#readme",
   "dependencies": {
     "argv": "0.0.2",
+    "format-json": "^1.0.3",
     "http-proxy": "^1.17.0",
     "js-beautify": "^1.7.5",
     "json-format": "^1.0.1",
