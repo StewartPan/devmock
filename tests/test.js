@@ -1,9 +1,19 @@
+const fs = require('fs');
+const path = require('path');
 const http = require('http');
-const httpProxy = require('http-proxy');
-let proxy = httpProxy.createProxyServer({
-  target: 'http://localhost:8080',
-  auth: 'user:password'
-});
-let server = http.createServer(function(req, res){
-  proxy.web(req, res);
-}).listen(9081);
+
+class test {
+  constructor(){
+    this.a  = 10;
+    //console.log(path.resolve());
+  }
+  init(){
+    this.server = http.createServer(function(req, res){
+      console.log(this.a);
+    }).listen(1111);
+  }
+}
+
+
+let t = new test();
+t.init();
