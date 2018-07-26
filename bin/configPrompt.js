@@ -1,6 +1,6 @@
 const prompt = require('prompt');
 const default_path = require('path').resolve();
-const {server_port, ws_port, server_url, distinguisher} = require('../lib/defaults');
+const {server_port, ws_port, server_url, distinguisher, recordLatest} = require('../lib/defaults');
 
 const schema = {
   properties: {
@@ -32,6 +32,12 @@ const schema = {
       description: 'Enter distinguisher array to identify different requests(use ^C to end)',
       type: 'array',
       default: distinguisher,
+      require: true
+    },
+    recordLatest: {
+      description: 'Enter whether record latest data',
+      type: 'boolean',
+      default: recordLatest,
       require: true
     },
   }
