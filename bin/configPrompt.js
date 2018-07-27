@@ -23,8 +23,8 @@ const schema = {
       required: true
     },
     target_url: {
-      description: 'Enter target_url to cache desired ajax data',
-      type: 'string',
+      description: 'Enter target_url array to cache desired ajax data',
+      type: 'array',
       default: '',
       require: true
     },
