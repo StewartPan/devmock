@@ -1,6 +1,6 @@
 {
   "name": "devmock",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "A mock server for web development which decouple frontend and backend developers and improve development efficiency.",
   "main": "lib/main.js",
   "scripts": {
