@@ -24,7 +24,7 @@ const schema = {
     },
     target_url: {
       description: 'Enter target_url to cache desired ajax data',
-      type: 'string',
+      type: 'array',
       default: '',
       require: true
     },
