@@ -66,3 +66,4 @@ typings/
 
 # ignore the tests folder
 tests/
+mockdata
