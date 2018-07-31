@@ -28,12 +28,6 @@ const schema = {
       default: '',
       require: true
     },
-    distinguisher: {
-      description: 'Enter distinguisher array to identify different requests(use ^C to end)',
-      type: 'array',
-      default: distinguisher,
-      require: true
-    },
     recordLatest: {
       description: 'Enter whether record latest data',
       type: 'boolean',
