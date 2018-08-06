@@ -1,6 +1,6 @@
 const prompt = require('prompt');
 const default_path = require('path').resolve();
-const {server_port, ws_port, server_url, distinguisher, recordLatest} = require('../lib/defaults');
+const {server_port, ws_port, server_url, distinguisher, mode, recordLatest} = require('../lib/defaults');
 
 const schema = {
   properties: {
@@ -22,16 +22,16 @@ const schema = {
       default: server_url,
       required: true
     },
+    mode: {
+      description: 'Enter operatin mode(standard/MSTR)',
+      type: 'string',
+      default: mode,
+      require: true
+    },
     target_url: {
       description: 'Enter target_url array to cache desired ajax data',
       type: 'array',
       default: '',
-      require: true
-    },
-    distinguisher: {
-      description: 'Enter distinguisher array to identify different requests(use ^C to end)',
-      type: 'array',
-      default: distinguisher,
       require: true
     },
     recordLatest: {
