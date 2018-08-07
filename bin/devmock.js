@@ -53,8 +53,8 @@ if (mod == 'init') {
   }
 }
 else if (mod == 'server') {
-  devmock.createServer(options);
+  devmock.createServer(options.dir);
 }
 else if (mod == 'ws') {
-  devmock.createWS(options);
+  devmock.createWS(options.dir);
 }
