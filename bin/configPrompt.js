@@ -1,49 +1,50 @@
 const prompt = require('prompt');
 const default_path = require('path').resolve();
-const {server_port, ws_port, server_url, distinguisher, mode, recordLatest} = require('../lib/defaults');
+const {targetUrl, requestMatcher, overwrite, serverPort, wsPort, mstrMode} = require('../lib/defaults');
 
 const schema = {
   properties: {
-    server_port: {
-      description: 'Enter server port',
-      type: 'integer',
-      default: server_port,
-      required: true
-    },
-    ws_port: {
-      description: 'Enter websocket port',
-      type: 'integer',
-      default: ws_port,
-      required: true
-    },
-    server_url: {
-      description: 'Enter server url to proxy',
+    targetUrl: {
+      description: 'Enter delegated server url',
       type: 'string',
-      default: server_url,
+      default: targetUrl,
       required: true
     },
-    mode: {
-      description: 'Enter operatin mode(standard/MSTR)',
-      type: 'string',
-      default: mode,
-      require: true
-    },
-    target_url: {
-      description: 'Enter target_url array to cache desired ajax data',
+    requestMatcher: {
+      // to be refined
+      description: 'Enter an array of request matchers to identify the desired request(press ^C to end input)',
       type: 'array',
-      default: '',
-      require: true
+      default: requestMatcher,
+      required: true
     },
-    recordLatest: {
-      description: 'Enter whether record latest data',
+    overwrite: {
+      description: 'Enter true/false to overwrite existing mock data',
       type: 'boolean',
-      default: recordLatest,
-      require: true
+      default: overwrite,
+      required: true  
     },
+    serverPort: {
+      description: 'Enter mock server port',
+      type: 'integer',
+      default: serverPort,
+      required: true
+    },
+    wsPort: {
+      description: 'Enter mock server websocket port',
+      type: 'integer',
+      default: wsPort,
+      required: true
+    },
+    mstrMode: {
+      description: 'Enter true for MSTR internal use, or enter false if you are not sure',
+      type: 'boolean',
+      default: mstrMode,
+      required: true
+    }
   }
 };
 
-module.exports = function configPrompt(dir, cb) {
+module.exports = function configPrompt(cb) {
   prompt.start();
   prompt.message = '';
   prompt.get(schema, function (err, result) {
@@ -51,7 +52,7 @@ module.exports = function configPrompt(dir, cb) {
       console.error(err);
     }
     else {
-      cb && cb(dir, result);
+      cb && cb(result);
     }
     prompt.stop();
   });
