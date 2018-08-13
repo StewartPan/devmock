@@ -3,7 +3,7 @@ const httpProxy = require('http-proxy');
 
 const proxy = httpProxy.createProxyServer({});
 
-const server = http.createServer(function(req, res) {
+const server = http.createServer(null, function(req, res) {
   // You can define here your custom logic to handle the request
   // and then proxy the request.
   proxy.web(req, res, {
@@ -12,6 +12,7 @@ const server = http.createServer(function(req, res) {
     });
 });
 
-console.log("listening on port 5050")
+console.log("listening on port 5050");
 server.listen(5050);
-https://localhost:443/MicroStrategy/servlet/mstrWeb
+
+// https://localhost:443/MicroStrategy/servlet/mstrWeb
