@@ -1,6 +1,6 @@
 const prompt = require('prompt');
 const default_path = require('path').resolve();
-const {targetUrl, requestMatcher, overwrite, serverPort, wsPort, mstrMode} = require('../lib/defaults');
+const {targetUrl, requestMatcher, overwrite, serverPort, wsPort, mstrMode, https, keyDir} = require('../lib/defaults');
 
 const schema = {
     properties: {
@@ -39,6 +39,18 @@ const schema = {
             description: 'Enter true for MSTR internal use, or enter false if you are not sure',
             type: 'boolean',
             default: mstrMode,
+            required: true
+        },
+        https: {
+            description: 'Enter true for https, false for http',
+            type: 'boolean',
+            default: https,
+            required: true
+        },
+        keyDir: {
+            description: 'Enter certificate/private keys directory for https, ignore this option if use http',
+            type: 'string',
+            default: keyDir,
             required: true
         }
     }

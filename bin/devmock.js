@@ -20,7 +20,7 @@ const MODS = [{
     }]
 }, {
     mod: 'server',
-    description: 'Http mock server',
+    description: 'Http/Https mock server',
     options: [{
         name: 'dir',
         short: 'd',
