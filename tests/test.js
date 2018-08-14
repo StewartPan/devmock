@@ -1,19 +1,18 @@
-const fs = require('fs');
-const path = require('path');
 const http = require('http');
+const httpProxy = require('http-proxy');
 
-class test {
-  constructor(){
-    this.a  = 10;
-    //console.log(path.resolve());
-  }
-  init(){
-    this.server = http.createServer(function(req, res){
-      console.log(this.a);
-    }).listen(1111);
-  }
-}
+const proxy = httpProxy.createProxyServer({});
 
+const server = http.createServer(null, function(req, res) {
+  // You can define here your custom logic to handle the request
+  // and then proxy the request.
+  proxy.web(req, res, {
+    target: 'https://aqueduct-tech.customer.cloud.microstrategy.com',
+    changeOrigin: true
+    });
+});
 
-let t = new test();
-t.init();
+console.log("listening on port 5050");
+server.listen(5050);
+
+// https://localhost:443/MicroStrategy/servlet/mstrWeb
