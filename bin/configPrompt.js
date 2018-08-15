@@ -1,5 +1,4 @@
 const prompt = require('prompt');
-const default_path = require('path').resolve();
 const {targetUrl, requestMatcher, overwrite, serverPort, wsPort, mstrMode, https, keyDir} = require('../lib/defaults');
 
 const schema = {

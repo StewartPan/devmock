@@ -4,7 +4,6 @@ const argv = require('argv');
 const package = require('../package');
 const devmock = require('../lib/main');
 const configPrompt = require('./configPrompt');
-const path = require('path');
 
 const MODS = [{
     mod: 'init',
