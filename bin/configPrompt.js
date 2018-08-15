@@ -45,12 +45,6 @@ const schema = {
             type: 'boolean',
             default: https,
             required: true
-        },
-        keyDir: {
-            description: 'Enter certificate/private keys directory for https, ignore this option if use http',
-            type: 'string',
-            default: keyDir,
-            required: true
         }
     }
 };
