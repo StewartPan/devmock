@@ -1,7 +1,7 @@
 # devmock
 A mock server for web development which decouples frontend and backend developers and improve development efficiency.
 
-> Record, mock, and proxy HTTP/HTTPS traffic as middleware for improving development efficiency.
+> Record, mock, and proxy HTTP/HTTPS traffic as middleware for Web development.
 
 ## Installation
 
@@ -42,13 +42,14 @@ after finishing configuration, using the following command to start mock server:
     `server`: start devmock as http/https server, you can also use `ws` for websocket(unavailable right now).
     `-d`: specify the absolute/relative directory where `config.js` is located.
 * **Replay**
-    After you recorded API responses, their corresponding routes will be write in `routes` in `config.js` like following:
+    After you recorded API responses, their corresponding routes will be written in `routes` in `config.js` like following:
     ```javascript
         routes[
               //"POST/devmock/User/info"
               //"GET/devmock/User/info"
-            ->  "POST/devmock/User/info"
-                "GET/devmock/User/info"
+
+            -> "POST/devmock/User/info"
+               "GET/devmock/User/info"
         ]
     ```
     if you want to replay this response, just uncomment it and restart the mock server.
