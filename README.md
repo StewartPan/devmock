@@ -42,7 +42,7 @@ after finishing configuration, using the following command to start mock server:
     `server`: start devmock as http/https server, you can also use `ws` for websocket(unavailable right now).
     `-d`: specify the absolute/relative directory where `config.js` is located.
 * **Replay**
-    After you recorded API responses, their corresponding routes will be written in `routes` in `config.js` like following:
+    After you recorded API responses(they will be stored as `json` file in specified dir, if the response is compressed, it will be decompressed. supports `gzip` and `deflate` encoding. when replay it will be compressed using original encoding), their corresponding routes will be written in `routes` in `config.js` like following:
     ```javascript
         routes[
               //"POST/devmock/User/info"
