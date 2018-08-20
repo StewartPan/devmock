@@ -8,7 +8,7 @@ A mock server for web development which decouples frontend and backend developer
 devmock can be installed via npm with the following command.
 
 ```shell
-npm install devmock --save-dev
+npm install devmock -g
 ```
 
 ## Overview
