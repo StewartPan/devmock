@@ -1,5 +1,5 @@
 const prompt = require('prompt');
-const {targetUrl, requestMatcher, overwrite, serverPort, wsPort, mstrMode, https, keyDir} = require('../lib/defaults');
+const {targetUrl, requestMatcher, overwrite, serverPort, wsPort, mstrMode, https} = require('../lib/defaults');
 
 const schema = {
     properties: {
