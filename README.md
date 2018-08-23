@@ -41,15 +41,16 @@ The purpose of this middleware is to provide an easy way for front-end developer
     
 *  **Start**
 
-  After finishing configuration, using the following command to start mock server:
-  
-    ``` shell
+    After finishing configuration, using the following command to start mock server:
+    
+    ```
     devmock server -d configFolderPath
     ```
-    
+ 
     `server`: start devmock as http/https server, you can also use `ws` for websocket(unavailable right now).
     
     `-d`: specify the absolute/relative directory where `config.js` is located.
+    
 *  **Replay**
   
     After you recorded API responses(they will be stored as `json` file in specified dir, if the response is compressed, it will be decompressed. supports `gzip` and `deflate` encoding. when replay it will be compressed using original encoding), their corresponding routes will be written in `routes` in `config.js` like following:
