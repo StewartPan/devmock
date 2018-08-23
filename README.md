@@ -42,8 +42,8 @@ The purpose of this middleware is to provide an easy way for front-end developer
 *  **Start**
 
   After finishing configuration, using the following command to start mock server:
-
-    ```
+  
+    ``` shell
     devmock server -d configFolderPath
     ```
     
