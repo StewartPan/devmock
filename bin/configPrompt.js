@@ -1,27 +1,8 @@
 const prompt = require('prompt');
-const {targetUrl, requestMatcher, overwrite, serverPort, wsPort, mstrMode, https} = require('../lib/defaults');
+const {requestMatcher, overwrite, serverPort, wsPort, mstrMode, https} = require('../lib/defaults');
 
 const schema = {
     properties: {
-        targetUrl: {
-            description: 'Enter delegated server url',
-            type: 'string',
-            default: targetUrl,
-            required: true
-        },
-        requestMatcher: {
-            // to be refined
-            description: 'Enter an array of request matchers to identify the desired request(press ^C to end input)',
-            type: 'array',
-            default: requestMatcher,
-            required: true
-        },
-        overwrite: {
-            description: 'Enter true/false to overwrite existing mock data',
-            type: 'boolean',
-            default: overwrite,
-            required: true
-        },
         serverPort: {
             description: 'Enter mock server port',
             type: 'integer',
@@ -32,6 +13,19 @@ const schema = {
             description: 'Enter mock server websocket port',
             type: 'integer',
             default: wsPort,
+            required: true
+        },
+        requestMatcher: {
+            // to be refined
+            description: 'Enter an array of request matchers to record the desired request(press ^C to end input)',
+            type: 'array',
+            default: requestMatcher,
+            required: true
+        },
+        overwrite: {
+            description: 'Enter true/false to overwrite existing mock data',
+            type: 'boolean',
+            default: overwrite,
             required: true
         },
         mstrMode: {
