@@ -1,8 +1,14 @@
 const prompt = require('prompt');
-const {requestMatcher, overwrite, serverPort, wsPort, mstrMode, https} = require('../lib/defaults');
+const {targetUrl, requestMatcher, overwrite, serverPort, wsPort, mstrMode, https} = require('../lib/defaults');
 
 const schema = {
     properties: {
+        targetUrl: {
+            description: 'Enter delegated server url',
+            type: 'string',
+            default: targetUrl,
+            required: true
+        },
         serverPort: {
             description: 'Enter mock server port',
             type: 'integer',
