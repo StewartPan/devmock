@@ -1,12 +1,12 @@
 const prompt = require('prompt');
-const {targetUrl, requestMatcher, overwrite, serverPort, wsPort, mstrMode, https} = require('../lib/defaults');
+const {recordUrl, recordMatcher, overwrite, serverPort, wsPort, mstrMode, https} = require('../lib/defaults');
 
 const schema = {
     properties: {
-        targetUrl: {
+        recordUrl: {
             description: 'Enter delegated server url',
             type: 'string',
-            default: targetUrl,
+            default: recordUrl,
             required: true
         },
         serverPort: {
@@ -21,11 +21,11 @@ const schema = {
             default: wsPort,
             required: true
         },
-        requestMatcher: {
+        recordMatcher: {
             // to be refined
             description: 'Enter an array of request matchers to record the desired request(press ^C to end input)',
             type: 'array',
-            default: requestMatcher,
+            default: recordMatcher,
             required: true
         },
         overwrite: {
