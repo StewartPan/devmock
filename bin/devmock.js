@@ -16,10 +16,18 @@ const MODS = [{
         name: 'dir',
         short: 'd',
         type: 'string'
-    }]
-}, {
+        }]
+    }, {
     mod: 'server',
     description: 'Http/Https mock server',
+    options: [{
+        name: 'dir',
+        short: 'd',
+        type: 'string'
+    }]
+    },{
+    mod: 'load',
+    description: 'load mock data',
     options: [{
         name: 'dir',
         short: 'd',
@@ -38,10 +46,10 @@ if (mod == 'init') {
     } else { // Use prompt
         configPrompt(arguments => devmock.initConfigFile(options.dir, arguments));
     }
-}
-else if (mod == 'server') {
+}else if(mod == 'load') {
+    devmock.loadMockData(options.dir);
+}else if (mod == 'server') {
     devmock.createServer(options.dir);
-}
-else if (mod == 'ws') {
+}else if (mod == 'ws') {
     devmock.createWS(options.dir);
 }
