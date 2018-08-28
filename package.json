@@ -20,13 +20,12 @@
   "dependencies": {
     "argv": "0.0.2",
     "http-proxy": "^1.17.0",
+    "is-url": "^1.2.4",
     "js-beautify": "^1.7.5",
-    "json-format": "^1.0.1",
     "minimatch": "^3.0.4",
     "mkdirp": "^0.5.1",
     "prompt": "^1.0.0",
-    "query-string": "^6.1.0",
-    "stringify-object": "^3.2.2"
+    "query-string": "^6.1.0"
   },
   "bin": {
     "devmock": "./bin/devmock.js"
