@@ -22,7 +22,6 @@ const schema = {
             required: true
         },
         recordMatcher: {
-            // to be refined
             description: 'Enter an array of request matchers to record the desired request(press ^C to end input)',
             type: 'array',
             default: recordMatcher,

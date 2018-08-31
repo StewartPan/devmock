@@ -32,6 +32,18 @@ const MODS = [{
         name: 'dir',
         short: 'd',
         type: 'string'
+    },]
+    },{
+    mod: 'diff',
+    description: 'compare current workflow data with original one',
+    options: [{
+        name: 'originWFDir',
+        short: 'w',
+        type: 'string'
+    },{
+        name: 'curWFDir',
+        short: 'c',
+        type: 'string'
     }]
 }];
 
@@ -40,16 +52,19 @@ MODS.forEach((opt) => argv.mod(opt));
 let {options, mod} = argv.version(package.version).run();
 
 
-if (mod == 'init') {
+if (mod === 'init') {
     if (options.yes) { // Use default config
         devmock.initConfigFile(options.dir, null);
     } else { // Use prompt
         configPrompt(arguments => devmock.initConfigFile(options.dir, arguments));
     }
-}else if(mod == 'load') {
+}else if(mod === 'load') {
     devmock.loadMockData(options.dir);
-}else if (mod == 'server') {
+}else if (mod === 'server') {
     devmock.createServer(options.dir);
-}else if (mod == 'ws') {
+}else if (mod === 'ws') {
     devmock.createWS(options.dir);
+}else if (mod === 'diff'){
+    console.log("options is ", JSON.stringify(options));
+    devmock.compareWorkflow(options.originWFDir, options.curWFDir);
 }
