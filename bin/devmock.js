@@ -65,6 +65,5 @@ if (mod === 'init') {
 }else if (mod === 'ws') {
     devmock.createWS(options.dir);
 }else if (mod === 'diff'){
-    console.log("options is ", JSON.stringify(options));
     devmock.compareWorkflow(options.originWFDir, options.curWFDir);
 }
