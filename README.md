@@ -30,8 +30,8 @@ The purpose of this middleware is to provide an easy way for front-end developer
     `-d` (required), specify the directory in which you want to store the config file and recorded responses. you can input absolute/relative path(relative to current dir),.
     ##### Options:
     the `config.js` file contains the following options:
-    *  `recordUrl`: url string of target server you want to proxy to. If you want to record the response from target server, you need to specify this option.
-    *  `recordMatcher`: array of strings that identify the desired request, eg: `[/devmock/abc, /users/api/*, /example/**/blabla]`, it supports glob `*` and "Globstar" `**` matching. you can refer this [minimatch](https://github.com/isaacs/minimatch) for details.
+    *  `targetUrl`: url string of target server you want to proxy to. If you want to record the response from target server, you need to specify this option.
+    *  `requestMatcher`: array of strings that identify the desired request, eg: `[/devmock/abc, /users/api/*, /example/**/blabla]`, it supports glob `*` and "Globstar" `**` matching. you can refer this [minimatch](https://github.com/isaacs/minimatch) for details.
     *  `overwrite`: true/false, whether overwrite recorded response.
     *  `serverPort`: number, port number for mock server.
     *  `wsPort`: number, port number for websocket mock server(unfinished).
@@ -110,6 +110,16 @@ The purpose of this middleware is to provide an easy way for front-end developer
 	After loading mock data then `config.js` will automatically add the coresponding routes.
 	
 	Note: the `method` and `pathname` in request headers are required and case-sensitive. You can add other [keywords](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers) in headers. 
+    
+* **Diff**
+
+	Diff function can used to compare difference version of same workflow. And it will output different requests and response of same request. 
+    
+	```shell
+	devmock diff -w previousWorkflowFolder -c currentWorkflowFolder
+	```
+
+
 ## Miscellaneous
 
 * The devmock `routes` option design adopts idea from [NetEase-NEI](https://github.com/NEYouFan/nei-toolkit). the `routes` options privides flexibility about whether using mock/recorded response or proxy to target server or third-party API(still in developing).
